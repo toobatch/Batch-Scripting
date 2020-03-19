@@ -26,41 +26,42 @@ goto MainMenu
 color b
 
 :: Setting the IP address to be assigned
-echo "Static IP Address: <IP>"
+echo  Static IP Address: <IP>
 set IP_Addr=<IP>
 echo.
 
 :: Setting the gateway
-echo "Default Gateway: <Gateway>"
+echo  Default Gateway: <Gateway>
 set  D_Gate=<Gateway>
 echo.
 
 :: Setting the Netmask
-echo "Subnet Mask: <Netmask>"
+echo  Subnet Mask: <Netmask>
 set  Sub_Mask=<Netmask>
+echo.
 
 ::Setting Static IP Information
-echo "Setting Static IP Information"
+echo  Setting Static IP Information
 netsh interface ip set address "%NIC%" static %IP_Addr% %Sub_Mask% %D_Gate% 1
 
 ::Setting DNS address 1
-echo "Setting DNS Settings <DNS1>"
+echo  Setting DNS Settings <DNS1>
 netsh interface ip add dns name="%NIC%" addr=<DNS1>
 
 ::Setting DNS address 2
-echo "Setting DNS Settings <DNS2>"
+echo  Setting DNS Settings <DNS2>
 netsh interface ip add dns name="%NIC%" addr=<DNS2> index=2
 
 ::Setting DNS address 3
-echo "Setting DNS Settings <DNS3>"
+echo  Setting DNS Settings <DNS3>
 netsh interface ip add dns name="%NIC%" addr=<DNS3> index=3
 
 ::Setting DNS address 4
-echo "Setting DNS Settings <DNS4>"
+echo  Setting DNS Settings <DNS4>
 netsh interface ip add dns name="%NIC%" addr=<DNS4> index=4
 
 ::Setting DNS address 5
-echo "Setting DNS Settings <DNS5>"
+echo  Setting DNS Settings <DNS5> 
 netsh interface ip add dns name="%NIC%" addr=<DNS5> index=5
 
 :: Displaying the NIC confifuration after the assignement:
@@ -72,7 +73,7 @@ goto MainMenu
 :: Setting NIC to DHCP
 :B
 color A
-ECHO Resetting NIC to DHCP
+ECHO  Resetting NIC to DHCP
 
 ::Resetting IP configuration to DHCP
 netsh int ip set address "%NIC%" dhcp
@@ -84,7 +85,7 @@ netsh int ip set dns "%NIC%" dhcp
 ipconfig /renew
 
 ::Displaying the current IP configuration after Change
-ECHO Here are the new settings for %computername%:
+ECHO  Here are the new settings for %computername%:
 ipconfig
 
 pause
